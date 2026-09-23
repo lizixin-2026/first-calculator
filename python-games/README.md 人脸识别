@@ -1,0 +1,37 @@
+ 人脸检测（OpenCV）
+
+ 一、项目背景
+
+前面几个项目都是 tkinter 和 pygame 做的 ，
+
+查了之后发现 OpenCV 可以做摄像头人脸检测，而且不用自己训练模型，它自带一个训练好的 Haar 模型，直接加载就能用。对大一来说，这是最容易上手的计算机视觉入门项目。
+
+ 二、项目功能
+
+- 打开电脑摄像头，实时显示画面
+- 自动检测画面里的人脸，用绿框框出来
+- 每张脸上面显示“Face”
+- 左上角显示当前检测到的人脸数量
+- 按 q 退出程序
+- 摄像头打不开时会提示原因
+
+ 三、技术方案
+
+- 编程语言：Python 3.13
+- 使用库：OpenCV（`opencv-contrib-python`）
+- 开发工具：IDLE
+
+程序结构：
+- `import cv2` 导入 OpenCV
+- `cv2.CascadeClassifier()` 加载 Haar 人脸检测模型
+- `cv2.VideoCapture(0)` 打开默认摄像头
+- `while True` 循环：读帧 → 转灰度 → 检测 → 画框 → 显示
+- 按 q 退出，释放摄像头，关闭窗口
+
+ 四、关键代码思路
+
+**1. 加载模型**
+
+face_cascade = cv2.CascadeClassifier(
+    cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
+)
