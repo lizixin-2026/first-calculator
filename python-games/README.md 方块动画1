@@ -17,13 +17,9 @@
  三、技术方案
 
 - 编程语言：Python 3.13
-- 使用库：pygame
+- 使用库：pygame  sys
 
- 四，项目分工
-
- 依旧一人，无分工
-
- 五，程序结构
+ 四，程序结构
 
 - `import pygame` 导入游戏库，`import sys` 用来退出程序
 - `pygame.init()` 初始化 pygame 的所有模块
@@ -37,9 +33,8 @@
   4. 清屏 画方块  刷新屏幕
 - 用 `pygame.time.Clock().tick(60)` 控制帧率
 
- 
-
-**2. 碰壁反弹**
-
-if x > 1150 or x < 0:
-    speed_x = -speed_x
+ 五，遇到主要问题
+ - 方块会跑出画布，要加边界限制，使它碰壁反弹
+   if x > 1150 or x < 0:
+      speed_x = -speed_x
+ - 方块运动含拖影，加screen。fill实时清屏
