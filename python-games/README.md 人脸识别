@@ -27,10 +27,9 @@
 - `while True` 循环：读帧  转灰度  检测  画框  计数  显示
 - 按 q 退出，释放摄像头，关闭窗口
 
- 四、关键代码思路
-
-**1. 加载模型**
-
-face_cascade = cv2.CascadeClassifier(
-    cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
-)
+ 五，遇到主要问题
+- 之前装的opencv-python是基础包，不完整 没有cascadeclassifier 运行报错没有这个属性
+  重新加载完整的opencv-contrib-python
+- 确认摄像头对象，0锁定电脑默认单个摄像头
+- 检查电脑本身摄像头是否打开，用if not限制提醒
+- 转化成灰度图，让它检测更快
